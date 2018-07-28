@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { SearchComponent } from './layout/search/search.component';
-import { ImageComponent } from './layout/image/image.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatIconModule, MatInputModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -14,8 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
   declarations: [
     AppComponent,
     LayoutComponent,
-    SearchComponent,
-    ImageComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
