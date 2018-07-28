@@ -15,7 +15,7 @@ declare var SC: any;
       state('visible', style({
         'opacity': 1
       })),
-      transition('* -> visible', animate(500)),
+      transition('* -> visible', animate('500ms 2s')),
       transition('visible -> *', animate(100))
     ])
   ]

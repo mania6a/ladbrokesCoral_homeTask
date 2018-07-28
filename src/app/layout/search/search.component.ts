@@ -6,7 +6,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
   @Output('showImage') showImage = new EventEmitter();
@@ -14,7 +14,6 @@ export class SearchComponent implements OnInit {
   form: FormGroup;
   songs = [];
   result = [];
-  songState: string;
   perPage: number;
   isNext = false;
   constructor(private apiRequest: ApiRequestService) { }
@@ -29,6 +28,7 @@ export class SearchComponent implements OnInit {
     const keyWord = form.get('input').value;
     this.result = [];
     this.perPage = 6;
+    this.songs.push('*');
     this.apiRequest.search(keyWord).subscribe((response: Array<any>) => {
       response.filter((song) => {
         if (song['title'].toLowerCase().includes(keyWord.toLowerCase())) {
@@ -54,6 +54,10 @@ export class SearchComponent implements OnInit {
   }
 
   toShowImage(song, index) {
+    document.getElementsByClassName('song')[index].classList.add('move');
+    setTimeout(() => {
+      document.getElementsByClassName('song')[index].classList.add('hidden');
+      }, 2000 );
     this.showImage.emit(song);
   }
 }

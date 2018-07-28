@@ -3,14 +3,14 @@
   <div class="row">
   <mat-form-field>
     <mat-placeholder *ngIf="withHolder"><mat-icon>search</mat-icon></mat-placeholder>
-    <input matInput (focus)="hideHolder()" formControlName="input">
+    <input matInput (focus)="hideHolder()" formControlName="input" autocomplete="on">
   </mat-form-field>
   <button mat-raised-button color="primary" (click)="search(form)"
           type="submit" [disabled]="form.invalid">GO</button>
   </div>
     <div class="songs">
-  <p class="song" *ngFor="let song of songs"
-     (click)="toShowImage(song)">{{song.title}}</p>
+  <p class="song" *ngFor="let song of songs; let ind = index"
+     (click)="toShowImage(song, ind)">{{song.title}}</p>
   </div>
 </form>
 <span class="space"></span>

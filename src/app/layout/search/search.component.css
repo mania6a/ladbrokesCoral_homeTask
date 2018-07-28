@@ -25,3 +25,18 @@ button[type='submit']{
   align-self: center;
 }
 
+.move{
+  transform: translateX(250%);
+  position: relative;
+  transition: transform 2s;
+  animation: opacity;
+  animation-delay: 1.5s;
+  animation-duration: 0.5s;
+}
+@keyframes opacity {
+  from {opacity: 1}
+  to {opacity: 0}
+}
+.hidden{
+  visibility: hidden;
+}
