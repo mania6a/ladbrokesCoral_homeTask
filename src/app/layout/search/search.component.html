@@ -1,0 +1,19 @@
+<div class="container">
+<form [formGroup]="form">
+  <div class="row">
+  <mat-form-field>
+    <mat-placeholder *ngIf="withHolder"><mat-icon>search</mat-icon></mat-placeholder>
+    <input matInput (focus)="hideHolder()" formControlName="input">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="search(form)"
+          type="submit" [disabled]="form.invalid">GO</button>
+  </div>
+    <div class="songs">
+  <p class="song" *ngFor="let song of songs"
+     (click)="toShowImage(song)">{{song.title}}</p>
+  </div>
+</form>
+<span class="space"></span>
+<button mat-raised-button class="next" color="primary"
+    (click)="getNext()" *ngIf="isNext"><mat-icon>arrow_right_alt</mat-icon></button>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+<app-search (showImage)="toShowImage($event)"></app-search>
+<div class="imageCont" >
+    <img [src]="photoUrl" alt="photo" (click)="playSong()" [@image]="state" *ngIf="photoUrl">
+    <h2 *ngIf="isClicked" class="title">{{song.title}}</h2>
+</div>
+  <!--<iframe *ngIf="photoUrl" width="90%" height="166" scrolling="no" frameborder="no"
+          [src]="trackUrl">
+  </iframe>-->
+</div>

@@ -1,0 +1,27 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.space{
+  flex: 1 1 auto;
+}
+.song{
+  padding-bottom: 4vh;
+  font-weight: bold;
+}
+.song:hover{
+  cursor: pointer;
+}
+button{
+  width: 5vmax;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
+button[type='submit']{
+  align-self: center;
+}
+
