@@ -3,7 +3,6 @@
   flex-direction: column;
   height: 100%;
 }
-
 .space{
   flex: 1 1 auto;
 }
@@ -24,7 +23,6 @@ button{
 button[type='submit']{
   align-self: center;
 }
-
 .move{
   transform: translateX(250%);
   position: relative;
@@ -39,4 +37,8 @@ button[type='submit']{
 }
 .hidden{
   visibility: hidden;
+}
+.regular{
+  transform: translateX(0%);
+  visibility: visible;
 }

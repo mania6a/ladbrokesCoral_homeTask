@@ -1,7 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiRequestService} from '../../services/api-request.service';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-search',
@@ -16,6 +15,7 @@ export class SearchComponent implements OnInit {
   result = [];
   perPage: number;
   isNext = false;
+  prevIndex: number;
   constructor(private apiRequest: ApiRequestService) { }
 
   ngOnInit() {
@@ -28,7 +28,6 @@ export class SearchComponent implements OnInit {
     const keyWord = form.get('input').value;
     this.result = [];
     this.perPage = 6;
-    this.songs.push('*');
     this.apiRequest.search(keyWord).subscribe((response: Array<any>) => {
       response.filter((song) => {
         if (song['title'].toLowerCase().includes(keyWord.toLowerCase())) {
@@ -53,11 +52,20 @@ export class SearchComponent implements OnInit {
     }
   }
 
+  // fly and fade out and return the previous on place
   toShowImage(song, index) {
+    if (this.prevIndex >=0) {
+      document.getElementsByClassName('song')[this.prevIndex].classList.remove('move');
+      document.getElementsByClassName('song')[this.prevIndex].classList.remove('hidden');
+      document.getElementsByClassName('song')[this.prevIndex].classList.add('regular');
+      console.log(document.getElementsByClassName('song')[this.prevIndex].classList);
+    }
+    document.getElementsByClassName('song')[index].classList.remove('regular');
     document.getElementsByClassName('song')[index].classList.add('move');
     setTimeout(() => {
       document.getElementsByClassName('song')[index].classList.add('hidden');
       }, 2000 );
     this.showImage.emit(song);
+    this.prevIndex = index;
   }
 }

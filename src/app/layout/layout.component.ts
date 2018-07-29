@@ -52,5 +52,4 @@ export class LayoutComponent implements OnInit {
         player.play();
       });
   }
-
 }

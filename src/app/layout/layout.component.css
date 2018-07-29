@@ -6,16 +6,10 @@
 }
 app-search{
   width: 40vh;
-  /*
-  background-color: thistle;
-  */
   padding-left: 5vmin;
   padding-bottom: 5vmin;
 }
-app-image{
-  flex-grow: 3;
-  background-color: darkseagreen;
-}
+
 .imageCont{
   flex-grow: 3;
   display: flex;
